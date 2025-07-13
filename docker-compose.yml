@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mlflow:
+    image: bitnami/mlflow:latest
+    command:
+      - mlflow
+      - server
+      - --backend-store-uri=sqlite:///mlflow.db
+      - --default-artifact-root=/mlruns
+      - --host=0.0.0.0
+      - --port=5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlruns
+      - ./mlflow.db:/app/mlflow.db
+
+  prometheus:
+    image: prom/prometheus:latest
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: "secret"
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+  exporter:
+    build:
+      context: .
+      dockerfile: exporter.Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+
+volumes:
+  grafana-storage:

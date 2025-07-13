@@ -62,7 +62,7 @@ matplotlib==3.10.3
 mdurl==0.1.2
 mlflow==3.1.1
 mlflow-skinny==3.1.1
-numpy==2.3.1
+numpy==1.26.4
 oauthlib==3.3.1
 opentelemetry-api==1.35.0
 opentelemetry-sdk==1.35.0
@@ -90,7 +90,6 @@ python-dotenv==1.1.1
 python-slugify==8.0.4
 python-socks==2.7.1
 pytz==2025.2
-pywin32==310
 PyYAML==6.0.2
 readchar==4.2.1
 referencing==0.36.2
@@ -104,7 +103,7 @@ rsa==4.9.1
 ruamel.yaml==0.18.14
 ruamel.yaml.clib==0.2.12
 scikit-learn==1.7.0
-scipy==1.16.0
+scipy==1.13.0
 semver==3.0.4
 shellingham==1.5.4
 six==1.17.0

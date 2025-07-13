@@ -1,4 +1,4 @@
-# Python artifacts
+# Python bytecode
 __pycache__/
 *.py[cod]
 *$py.class
@@ -9,27 +9,27 @@ venv/
 env/
 ENV/
 
-# Data folders (keep the structure, not the big files)
+# Data
 data/raw/
 data/processed/
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# Model artifacts
+# Models
 models/
 !models/.gitkeep
 
-# MLflow runs
+# MLflow
 mlruns/
 
 # Jupyter
 .ipynb_checkpoints/
 
-# IDEs
+# IDE configs
 .vscode/
 .idea/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 
